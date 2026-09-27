@@ -3,6 +3,10 @@ import useAuthorizationStore from '../shared/auth/store';
 import { getAccountSettings } from '../shared/auth/api';
 import { getChats } from '../entities/chats/api';
 
+/**
+ *
+ * @see https://console.green-api.com/app/api/getSettings
+ */
 export const useGetAccountSettings = () => {
   const { idInstance, apiTokenInstance } = useAuthorizationStore();
 
@@ -13,6 +17,10 @@ export const useGetAccountSettings = () => {
   });
 };
 
+/**
+ *
+ * @see https://console.green-api.com/app/api/getChats
+ */
 export const useGetChats = () => {
   const { idInstance, apiTokenInstance } = useAuthorizationStore();
 

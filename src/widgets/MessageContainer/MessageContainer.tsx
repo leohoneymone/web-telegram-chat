@@ -16,7 +16,7 @@ export const MessageContainer: FC = () => {
       ) : (
         <div className={styles.placeholder}>
           <MessageOutlined />
-          <h2>Выберите чат</h2>
+          <h2>Выберите или создайте чат</h2>
         </div>
       )}
     </Content>

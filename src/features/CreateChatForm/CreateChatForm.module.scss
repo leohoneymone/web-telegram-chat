@@ -1,0 +1,19 @@
+.button {
+  width: calc(100% - 1rem);
+  height: 47px;
+  margin: 0.5rem;
+  font-size: 1.2rem;
+
+  &:global(.ant-btn-icon-only) {
+    width: calc(100% - 1rem) !important;
+  }
+}
+
+.form {
+  margin-top: 1rem;
+  margin-bottom: 0;
+
+  .submit {
+    width: 100%;
+  }
+}

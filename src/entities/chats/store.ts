@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
 interface ChatStore {
-  currentChatId: number | undefined;
-  selectChat: (id?: number) => void;
+  currentChatId: string | undefined;
+  selectChat: (id?: string) => void;
 }
 
 const initialState: ChatStore['currentChatId'] = undefined;
