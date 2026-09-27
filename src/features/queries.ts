@@ -1,10 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import useAuthorizationStore from '../shared/auth/store';
 import { getAccountSettings } from '../shared/auth/api';
 import { getChats } from '../entities/chats/api';
+import type { MessagePayload } from '../entities/messages/types';
+import { sendMessage } from '../entities/messages/api';
 
 /**
- *
  * @see https://console.green-api.com/app/api/getSettings
  */
 export const useGetAccountSettings = () => {
@@ -18,7 +19,6 @@ export const useGetAccountSettings = () => {
 };
 
 /**
- *
  * @see https://console.green-api.com/app/api/getChats
  */
 export const useGetChats = () => {
@@ -28,5 +28,17 @@ export const useGetChats = () => {
     queryKey: ['tg-chats', idInstance, apiTokenInstance],
     queryFn: () => getChats(apiTokenInstance),
     enabled: !!idInstance && !!apiTokenInstance,
+  });
+};
+
+/**
+ * @see https://console.green-api.com/app/api/sendMessage
+ */
+export const useSendMessage = (onError?: () => void) => {
+  const { apiTokenInstance } = useAuthorizationStore();
+
+  return useMutation({
+    mutationFn: (payload: MessagePayload) => sendMessage(payload, apiTokenInstance),
+    onError: onError,
   });
 };
