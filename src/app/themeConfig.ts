@@ -32,5 +32,12 @@ export const themeConfig: ThemeConfig = {
       contentBg: 'var(--ant-color-primary-bg)',
       colorIcon: 'var(--ant-color-text)',
     },
+    Message: {
+      contentBg: 'var(--ant-color-primary-bg)',
+    },
+    Skeleton: {
+      gradientFromColor: '#5C5C5C88',
+      gradientToColor: '#78787888',
+    },
   },
 };
