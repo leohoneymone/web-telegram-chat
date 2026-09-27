@@ -20,10 +20,17 @@ export const themeConfig: ThemeConfig = {
       itemSelectedColor: 'var(--ant-color-text)',
     },
     Input: {
+      colorBgContainer: '#12202E',
+      colorBorder: 'transparent',
       activeBg: '#162738',
       activeBorderColor: 'transparent',
       hoverBg: '#162738',
       colorTextPlaceholder: '#969696',
+      colorIcon: '#969696',
+    },
+    Modal: {
+      contentBg: 'var(--ant-color-primary-bg)',
+      colorIcon: 'var(--ant-color-text)',
     },
   },
 };
