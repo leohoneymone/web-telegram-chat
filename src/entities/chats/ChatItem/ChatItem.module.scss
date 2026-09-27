@@ -1,0 +1,28 @@
+.chat {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  transition: 0.3s var(--ant-motion-ease-in-out);
+
+  &:hover,
+  &.selected {
+    cursor: pointer;
+    background: var(--ant-color-primary-bg);
+  }
+}
+
+.collapsed {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+
+  &:hover,
+  &.selected {
+    cursor: pointer;
+    background: var(--ant-color-primary-bg);
+  }
+}

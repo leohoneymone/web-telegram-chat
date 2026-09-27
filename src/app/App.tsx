@@ -8,7 +8,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { ChatHeader } from '../widgets/ChatHeader/ChatHeader';
-import { UserList } from '../widgets/UserList/UserList';
+import { ChatList } from '../widgets/ChatList/ChatList';
 import { MessageContainer } from '../widgets/MessageContainer/MessageContainer';
 
 export const App: FC = () => {
@@ -20,7 +20,7 @@ export const App: FC = () => {
         <Layout className="app">
           <ChatHeader />
           <Layout>
-            <UserList />
+            <ChatList />
             <MessageContainer />
           </Layout>
         </Layout>

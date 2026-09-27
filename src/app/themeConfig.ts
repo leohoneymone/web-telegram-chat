@@ -19,6 +19,10 @@ export const themeConfig: ThemeConfig = {
       itemSelectedBg: 'var(--ant-color-primary-bg)',
       itemSelectedColor: 'var(--ant-color-text)',
     },
+    Listy: {
+      itemPaddingBlock: 0,
+      itemPaddingInline: 0,
+    },
     Input: {
       colorBgContainer: '#12202E',
       colorBorder: 'transparent',

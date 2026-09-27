@@ -28,6 +28,16 @@ html {
   height: 100vh;
 }
 
+*::-webkit-scrollbar {
+  background: var(--ant-color-primary);
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--ant-color-primary-bg);
+  border-radius: 3px;
+}
+
 .app {
   background: var(--ant-color-primary-bg);
   width: 100%;
