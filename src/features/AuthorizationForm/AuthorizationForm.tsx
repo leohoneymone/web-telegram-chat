@@ -36,7 +36,7 @@ export const AuthorizationForm: FC = () => {
       return;
     }
 
-    msg.success(`Добро пожаловать, ${auth.data?.username.slice(1)}`);
+    msg.success(`Добро пожаловать`);
     setOpened(false);
   };
 
