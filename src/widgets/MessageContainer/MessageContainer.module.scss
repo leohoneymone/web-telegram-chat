@@ -18,3 +18,11 @@
     height: 110px;
   }
 }
+
+.blobs {
+  margin-top: 1rem;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}

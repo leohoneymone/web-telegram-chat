@@ -17,3 +17,9 @@ export interface CheckAccount {
   phoneNumber: number;
   fromCache: boolean;
 }
+
+// Сообщение
+export interface ChatHistoryPayload {
+  chatId: string;
+  count: number;
+}

@@ -1,0 +1,54 @@
+.message {
+  padding: 0 1rem;
+  display: flex;
+
+  .blob {
+    position: relative;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--ant-box-shadow-secondary);
+  }
+
+  .tail {
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &.incoming {
+    flex-direction: row;
+
+    .blob {
+      background: var(--ant-color-info);
+    }
+
+    .tail {
+      left: -5px;
+      border-bottom: 5px solid var(--ant-color-info);
+      border-right: 5px solid var(--ant-color-info);
+      border-top: 5px solid transparent;
+      border-left: 5px solid transparent;
+    }
+  }
+
+  &.outgoing {
+    flex-direction: row-reverse;
+
+    .blob {
+      background: var(--ant-color-success);
+    }
+
+    .tail {
+      right: -5px;
+      border-bottom: 5px solid var(--ant-color-success);
+      border-left: 5px solid var(--ant-color-success);
+      border-top: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+  }
+}
+
+.username {
+  font-weight: bold;
+  font-size: 0.8rem;
+}

@@ -1,10 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import useAuthorizationStore from '../shared/auth/store';
 import useNotificationStore from '../entities/notifications/store';
 import { deleteNotification, receiveNotification } from '../entities/notifications/api';
 
 const useNotificationPolling = () => {
+  const queryClient = useQueryClient();
+
   const { idInstance, apiTokenInstance } = useAuthorizationStore();
   const { addNotificaton } = useNotificationStore();
 
@@ -27,10 +29,19 @@ const useNotificationPolling = () => {
         return null;
       }
 
+      // Не читаю уведомления из каналов
+      if (data && data.body.senderData.chatType === 'channel') {
+        console.log(`Удаление уведомления ${data.receiptId} - сообщение из канала`);
+        await deleteNotification(data.receiptId, apiTokenInstance);
+        return null;
+      }
+
       // Обработка текстового уведомления
       if (data) {
         addNotificaton(data);
         await deleteNotification(data.receiptId, apiTokenInstance);
+
+        queryClient.invalidateQueries({ queryKey: ['tg-chat-history'] });
       }
 
       return data;

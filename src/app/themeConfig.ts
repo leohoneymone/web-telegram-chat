@@ -4,6 +4,8 @@ export const themeConfig: ThemeConfig = {
   hashed: false,
   token: {
     colorText: '#f0f0f0',
+    colorSuccess: '#17802e',
+    colorInfo: '#2b6891',
     colorPrimary: '#12202E',
     colorPrimaryBg: '#1E3045',
     boxShadowSecondary: '0 0 7px -1px #000000c4',
