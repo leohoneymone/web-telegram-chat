@@ -29,9 +29,20 @@ const useNotificationPolling = () => {
         return null;
       }
 
-      // Не читаю уведомления из каналов
+      // Не читает уведомления из каналов
       if (data && data.body.senderData.chatType === 'channel') {
         console.log(`Удаление уведомления ${data.receiptId} - сообщение из канала`);
+        await deleteNotification(data.receiptId, apiTokenInstance);
+        return null;
+      }
+
+      queryClient.invalidateQueries({ queryKey: ['tg-chat-history'] });
+
+      // Не ВЫВОДИТ уведомление неполученных сообщений - просто обновляет чат
+      if (data && data.body.typeWebhook !== 'incomingMessageReceived') {
+        console.log(
+          `Удаление уведомления ${data.receiptId} - тип сообщения: ${data.body.messageData.typeMessage}`,
+        );
         await deleteNotification(data.receiptId, apiTokenInstance);
         return null;
       }
@@ -40,8 +51,6 @@ const useNotificationPolling = () => {
       if (data) {
         addNotificaton(data);
         await deleteNotification(data.receiptId, apiTokenInstance);
-
-        queryClient.invalidateQueries({ queryKey: ['tg-chat-history'] });
       }
 
       return data;

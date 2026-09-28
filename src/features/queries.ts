@@ -7,6 +7,7 @@ import { sendMessage } from '../entities/messages/api';
 
 import type { MessagePayload } from '../entities/messages/types';
 import type { ChatHistoryPayload } from '../entities/chats/types';
+import useNotificationStore from '../entities/notifications/store';
 
 /**
  * @see https://console.green-api.com/app/api/getSettings
@@ -48,10 +49,17 @@ export const useSendMessage = (onError?: () => void) => {
 
 export const useGetChatHistory = (payload: ChatHistoryPayload) => {
   const { idInstance, apiTokenInstance } = useAuthorizationStore();
+  const { removeNotificationByUser } = useNotificationStore();
 
   return useQuery({
     queryKey: ['tg-chat-history', idInstance, apiTokenInstance, payload.chatId],
-    queryFn: () => getChatHistory(payload, apiTokenInstance),
+    queryFn: async () => {
+      const history = await getChatHistory(payload, apiTokenInstance);
+
+      removeNotificationByUser(history[0].chatId);
+
+      return history;
+    },
     enabled: !!idInstance && !!apiTokenInstance && !!payload.chatId,
   });
 };

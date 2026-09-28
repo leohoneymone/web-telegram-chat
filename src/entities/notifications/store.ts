@@ -9,6 +9,7 @@ interface NotificationsProperties {
 interface NotificationsActions {
   addNotificaton: (data: NotificationData) => void;
   removeNotification: (id: number) => void;
+  removeNotificationByUser: (chatId: string) => void;
   clearNotifications: () => void;
 }
 
@@ -30,6 +31,13 @@ const useNotificationStore = create<NotificationStore>()(
     removeNotification: (id: number) =>
       set((state) => {
         state.notificationList = state.notificationList.filter((n) => n.receiptId !== id);
+      }),
+
+    removeNotificationByUser: (chatId: string) =>
+      set((state) => {
+        state.notificationList = state.notificationList.filter(
+          (n) => n.body.senderData.chatId !== chatId,
+        );
       }),
 
     clearNotifications: () =>
