@@ -11,6 +11,22 @@
     cursor: pointer;
     background: var(--ant-color-primary-bg);
   }
+
+  .username {
+    flex-grow: 1;
+  }
+
+  .notification {
+    background: var(--ant-color-error);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.25rem;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    text-align: center;
+  }
 }
 
 .collapsed {

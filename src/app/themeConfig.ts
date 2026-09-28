@@ -23,6 +23,9 @@ export const themeConfig: ThemeConfig = {
       itemPaddingBlock: 0,
       itemPaddingInline: 0,
     },
+    Badge: {
+      colorBorderBg: 'transparent',
+    },
     Input: {
       colorBgContainer: '#12202E',
       colorBorder: 'transparent',
@@ -42,6 +45,9 @@ export const themeConfig: ThemeConfig = {
     Skeleton: {
       gradientFromColor: '#5C5C5C88',
       gradientToColor: '#78787888',
+    },
+    Notification: {
+      colorBgElevated: 'var(--ant-color-primary)',
     },
   },
 };

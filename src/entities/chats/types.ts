@@ -1,8 +1,10 @@
+import type { ChatType } from '../../shared/types';
+
 // Интерфейс чата
 export interface Chat {
   chatId: string;
   name: string;
-  type: 'user' | 'channel' | 'bot' | 'supergroup';
+  type: ChatType;
   phoneNumber: number;
   username: string;
 }

@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ChatHeader } from '../widgets/ChatHeader/ChatHeader';
 import { ChatList } from '../widgets/ChatList/ChatList';
 import { MessageContainer } from '../widgets/MessageContainer/MessageContainer';
+import { NotificationList } from '../widgets/NotificationList/NotificationList';
 
 export const App: FC = () => {
   const client = new QueryClient();
@@ -24,6 +25,7 @@ export const App: FC = () => {
             <MessageContainer />
           </Layout>
         </Layout>
+        <NotificationList />
       </ConfigProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
